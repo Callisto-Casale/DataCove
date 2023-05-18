@@ -15,7 +15,7 @@ Records are index-stored and the class does not change the index.
   <groupId>com.fasterxml.jackson.core</groupId>
   <artifactId>jackson-databind</artifactId>
   <version>2.14.2</version>
- </dependency>
+</dependency>
 ```
 
 ## Example usage (in org.example)
