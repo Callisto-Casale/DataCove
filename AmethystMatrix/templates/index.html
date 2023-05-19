@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amethyst Matrix</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Display&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:ital@1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sharada&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+    </style>
+
+</head>
+
+<style>
+body {
+  overflow: hidden; /* Hide scrollbars */
+  background-color: black;
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+}
+
+.title_base{
+    color: white;
+    text-align: center;
+    position: static;
+    left: 50%;
+    right: 50%;
+    font-size: 80px;
+    font-family: 'Rajdhani', sans-serif;
+}
+.ghost {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+  z-index: -1;
+}
+
+.database{
+    position: fixed;
+    bottom: 15%;
+    left: 0;
+    width: 100%;
+}
+.parent{
+    padding:20px;
+    background:rgba(0, 0, 0, 0.3);
+}
+
+.child{
+   
+    padding:20px;
+    background:rgba(0,0,0,0.6);
+}
+.table-div{
+    overflow: auto !important;
+    max-height: 300px;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000000; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000000; 
+}
+.latern_left {
+    position: fixed;
+    top: 43%;
+    left: 150px;
+    transform: translate(-35%, -50%);
+    height: 25%!important;
+    width: 14%!important;
+    filter: drop-shadow(0px -10px 4rem rgb(155, 52, 235));
+    animation: glow 2s infinite;
+  }
+.chain_left{
+  position: fixed;
+    top: 255px;
+    left: 158px;
+    transform: translate(-35%, -50%);
+    height: 25%!important;
+    width: 14%!important;
+  }
+
+  .latern_right {
+    position: fixed;
+    top: 36%;
+    right: 100px;
+    transform: translate(-35%, -50%);
+    height: 25%!important;
+    width: 14%!important;
+    filter: drop-shadow(0px -10px 4rem rgb(155, 52, 235));
+    animation: glow 3s infinite;
+  }
+.chain_right{
+  position: fixed;
+    top: 185px;
+    right: 92.5px;
+    transform: translate(-35%, -50%);
+    height: 25%!important;
+    width: 14%!important;
+  }
+  @keyframes glow {
+  0% {
+    filter: drop-shadow(0px 0px 3rem rgb(155, 52, 235));
+  }
+  20% {
+    filter: drop-shadow(0px0px 3.5rem rgb(155, 52, 235));
+  }
+  40% {
+    filter: drop-shadow(0px 0px 4rem rgb(155, 52, 235));
+  }
+  60% {
+    filter: drop-shadow(0px 0px 3.5rem rgb(155, 52, 235));
+  }
+  80% {
+    filter: drop-shadow(0px 0px 3rem rgb(155, 52, 235));
+  }
+  100% {
+    filter: drop-shadow(0px 0px 2.5rem rgb(155, 52, 235));
+  }
+}
+
+</style>
+
+<body>
+
+
+    <div class="container-fluid ghost">
+        <div class="row">
+            <svg id="wave" class="g-0" style="transform:rotate(180deg); transition: 0.3s" viewBox="0 0 1440 190" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(0, 0, 0, 1)" offset="0%"></stop><stop stop-color="rgba(192.665, 11, 255, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,95L60,114L120,133L180,19L240,38L300,114L360,95L420,171L480,0L540,38L600,57L660,57L720,57L780,19L840,57L900,0L960,133L1020,76L1080,95L1140,114L1200,152L1260,38L1320,38L1380,133L1440,95L1440,190L1380,190L1320,190L1260,190L1200,190L1140,190L1080,190L1020,190L960,190L900,190L840,190L780,190L720,190L660,190L600,190L540,190L480,190L420,190L360,190L300,190L240,190L180,190L120,190L60,190L0,190Z"></path><defs><linearGradient id="sw-gradient-1" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(0, 0, 0, 1)" offset="0%"></stop><stop stop-color="rgba(225.727, 11, 255, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 50px); opacity:0.9" fill="url(#sw-gradient-1)" d="M0,0L60,19L120,76L180,38L240,76L300,76L360,114L420,152L480,19L540,152L600,0L660,133L720,19L780,57L840,0L900,38L960,152L1020,171L1080,19L1140,76L1200,133L1260,76L1320,38L1380,114L1440,57L1440,190L1380,190L1320,190L1260,190L1200,190L1140,190L1080,190L1020,190L960,190L900,190L840,190L780,190L720,190L660,190L600,190L540,190L480,190L420,190L360,190L300,190L240,190L180,190L120,190L60,190L0,190Z"></path><defs><linearGradient id="sw-gradient-2" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(62, 166.359, 243, 1)" offset="0%"></stop><stop stop-color="rgba(225.727, 11, 255, 0.47)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 100px); opacity:0.8" fill="url(#sw-gradient-2)" d="M0,133L60,19L120,38L180,95L240,95L300,152L360,171L420,57L480,76L540,114L600,38L660,57L720,95L780,95L840,76L900,76L960,19L1020,171L1080,95L1140,114L1200,133L1260,171L1320,0L1380,114L1440,38L1440,190L1380,190L1320,190L1260,190L1200,190L1140,190L1080,190L1020,190L960,190L900,190L840,190L780,190L720,190L660,190L600,190L540,190L480,190L420,190L360,190L300,190L240,190L180,190L120,190L60,190L0,190Z"></path><defs><linearGradient id="sw-gradient-3" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(62, 141.834, 243, 0.99)" offset="0%"></stop><stop stop-color="rgba(126.543, 11, 255, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 150px); opacity:0.7" fill="url(#sw-gradient-3)" d="M0,114L60,0L120,171L180,0L240,76L300,57L360,38L420,95L480,152L540,152L600,57L660,114L720,0L780,171L840,152L900,95L960,171L1020,0L1080,76L1140,171L1200,38L1260,133L1320,152L1380,114L1440,19L1440,190L1380,190L1320,190L1260,190L1200,190L1140,190L1080,190L1020,190L960,190L900,190L840,190L780,190L720,190L660,190L600,190L540,190L480,190L420,190L360,190L300,190L240,190L180,190L120,190L60,190L0,190Z"></path></svg></body>
+            
+            <div class="footer g-0">
+                <svg id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 250" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(0, 0, 0, 1)" offset="0%"></stop><stop stop-color="rgba(192.665, 11, 255, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,50L84.7,175L169.4,150L254.1,100L338.8,25L423.5,200L508.2,75L592.9,200L677.6,25L762.4,50L847.1,150L931.8,0L1016.5,125L1101.2,200L1185.9,75L1270.6,25L1355.3,200L1440,50L1524.7,25L1609.4,150L1694.1,100L1778.8,175L1863.5,25L1948.2,200L2032.9,125L2032.9,250L1948.2,250L1863.5,250L1778.8,250L1694.1,250L1609.4,250L1524.7,250L1440,250L1355.3,250L1270.6,250L1185.9,250L1101.2,250L1016.5,250L931.8,250L847.1,250L762.4,250L677.6,250L592.9,250L508.2,250L423.5,250L338.8,250L254.1,250L169.4,250L84.7,250L0,250Z"></path><defs><linearGradient id="sw-gradient-1" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(0, 0, 0, 1)" offset="0%"></stop><stop stop-color="rgba(225.727, 11, 255, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 50px); opacity:0.9" fill="url(#sw-gradient-1)" d="M0,200L84.7,125L169.4,25L254.1,125L338.8,75L423.5,75L508.2,0L592.9,150L677.6,175L762.4,25L847.1,0L931.8,125L1016.5,75L1101.2,0L1185.9,50L1270.6,25L1355.3,200L1440,225L1524.7,225L1609.4,75L1694.1,100L1778.8,150L1863.5,175L1948.2,125L2032.9,75L2032.9,250L1948.2,250L1863.5,250L1778.8,250L1694.1,250L1609.4,250L1524.7,250L1440,250L1355.3,250L1270.6,250L1185.9,250L1101.2,250L1016.5,250L931.8,250L847.1,250L762.4,250L677.6,250L592.9,250L508.2,250L423.5,250L338.8,250L254.1,250L169.4,250L84.7,250L0,250Z"></path><defs><linearGradient id="sw-gradient-2" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(62, 166.359, 243, 1)" offset="0%"></stop><stop stop-color="rgba(225.727, 11, 255, 0.47)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 100px); opacity:0.8" fill="url(#sw-gradient-2)" d="M0,125L84.7,100L169.4,125L254.1,200L338.8,0L423.5,150L508.2,125L592.9,200L677.6,75L762.4,225L847.1,0L931.8,200L1016.5,0L1101.2,100L1185.9,75L1270.6,75L1355.3,125L1440,0L1524.7,0L1609.4,200L1694.1,75L1778.8,25L1863.5,100L1948.2,125L2032.9,25L2032.9,250L1948.2,250L1863.5,250L1778.8,250L1694.1,250L1609.4,250L1524.7,250L1440,250L1355.3,250L1270.6,250L1185.9,250L1101.2,250L1016.5,250L931.8,250L847.1,250L762.4,250L677.6,250L592.9,250L508.2,250L423.5,250L338.8,250L254.1,250L169.4,250L84.7,250L0,250Z"></path></svg>
+            </div>
+
+
+              <img src="images/latern.png" alt="Lantern" class="latern_left">
+              <img src="images/chain.png" alt="Chain" class="chain_left">
+              <img src="images/chain.png" alt="Chain" class="chain_left" style="top: 45px!important;">
+
+              <img src="images/latern.png" alt="Lantern" class="latern_right">
+              <img src="images/chain.png" alt="Chain" class="chain_right">
+              <img src="images/chain.png" alt="Chain" class="chain_right" style="top: -27px!important;">
+
+          </div>
+    </div>
+
+    <div style="z-index: 1" class="database">
+    <h1 class="title_base mt-n1">Amethyst Matrix
+      <p style="font-size:20px;">Stand-alone JSON web-database</p>
+    </h1>
+    <div class="container" style="width: 1000px;">
+
+            <div class="card text-white mb-4 parent" style="width: 60rem;">
+              <div class="card child" style="max-width: 58rem;">
+                <div class="card-header border-bottom border-light mb-n5">
+
+                  <h5 class="card-title" id="database_title"></h5>
+
+
+                  <button class="btn border border-light text-light" style="background-color:rgb(155, 52, 235);" data-bs-toggle="modal" data-bs-target="#changeDatabase">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
+                      <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                  </button>
+
+                      
+                </div>
+                <div class="card-body">
+                  <p class="card-text table-div" style="max-height: 50px;">
+                    <div class="table-div">
+                        <table class="table table-borderless rounded rounded-3 overflow-hidden border border-light text-white" style="background-color: black;">
+                            <thead id="thead">
+                              </thead>
+                            <tbody id="tbody">
+                            </tbody>
+                          </table>
+                    </div>
+                  </p>
+                </div>
+              </div>
+            </div> 
+    </div>
+</div>
+
+<script>
+let url = new URL(window.location.href);
+let filename = url.searchParams.get('filename');
+
+console.log('/' + filename);
+
+fetch('/static/' + filename)
+  .then(response => response.json())
+  .then(jsonObject => {
+    const formattedJson = JSON.stringify(jsonObject, null, 2);
+    const JSONOBJ = JSON.parse(formattedJson);
+
+    const tbody = document.getElementById("tbody")
+    const thead = document.getElementById("thead");
+    const row = document.createElement("tr");
+
+    Object.keys(JSONOBJ).forEach(key => {
+
+      const cell = document.createElement("th");
+      cell.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+      cell.setAttribute('id', key);
+      row.appendChild(cell);
+
+      thead.appendChild(row);
+
+    });
+
+    let counter = 0;
+    
+    for(let i = 0; i < JSONOBJ['name'].length; i++) {
+
+      const row = document.createElement("tr");
+      Object.keys(JSONOBJ).forEach(key => {
+        const cell = document.createElement("td");
+        cell.textContent = JSONOBJ[key][counter];
+        row.appendChild(cell);
+      });
+      tbody.appendChild(row);
+      counter++;
+
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+
+
+
+
+    document.getElementById("database_title").textContent = filename;
+
+    console.log("Done!");
+</script>
+
+<!-- Modal -->
+<div class="modal fade modal-dialog modal-dialog-centered modal-dialog-scrollable" id="changeDatabase" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content border rounded text-light" style="background-color: black;">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Select database</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="model-body">
+        <script>
+          $(document).ready(function() {
+              $.get('/api/files', function(data) {
+                  
+                  const model_body = document.getElementById("model-body");
+
+                  console.log(data);
+                  data.forEach(file => {
+                    
+                    const redirect = document.createElement("a");
+                    redirect.href = "http://localhost:5000/?filename=" + file;
+
+                    const lineBreak = document.createElement('br');
+                    redirect.textContent = file;
+                    redirect.classList.add("btn", "btn-dark", "btn-sm", "mt-2")
+
+                    model_body.appendChild(redirect);
+                    model_body.appendChild(lineBreak);
+
+                  });
+              });
+          });
+      </script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn text-light" style="background-color:blueviolet;">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
